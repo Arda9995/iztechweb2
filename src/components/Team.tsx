@@ -165,8 +165,8 @@ const Team = () => {
     },
     {
       name: "Senanur Günay",
-      roleKey: "electronics_software_team_member",
-      role: t('roles.electronics_software_team_member'),
+      roleKey: "organization_team_member",
+      role: t('roles.organization_team_member'),
       department: t('departments.computer_engineering'),
       image: "/SENANUR.webp",
       social: {
