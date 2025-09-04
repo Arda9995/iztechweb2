@@ -405,10 +405,7 @@ const Team = () => {
 
           <div className="flex flex-col gap-16">
             {categories.map(([category, members]) => (
-                <div
-                    key={category}
-                    className="w-full max-w-6xl mx-auto bg-[#1a1a1a]/70 border border-[#2a2a2a] rounded-xl p-6"
-                >
+                <div key={category}>
                   <h3 className="text-2xl font-semibold text-white mb-6 text-center">
                     {category}
                   </h3>
