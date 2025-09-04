@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';   // 🔹 Eklendi
 
 const Header = () => {
     const { t, i18n } = useTranslation();
@@ -17,9 +18,8 @@ const Header = () => {
         setCurrentLanguage(newLang);
     };
 
-
     const handleRefresh = () => {
-        window.location.reload();
+        window.location.href = '/';   // 🔹 Artık siteyi ana sayfaya yönlendiriyor, reload yerine route değiştiriyor
     };
 
     return (
@@ -29,22 +29,21 @@ const Header = () => {
 
                     {/* Logo Area */}
                     <div className="flex items-center relative" style={{ width: 260, height: 40, position: 'relative' }}>
-                        {/* Main Logo - Always visible */}
-                        <div 
+                        <div
                             className="relative overflow-hidden"
                             style={{
                                 height: '40px',
                                 zIndex: 10,
                                 transform: 'translateZ(0)',
-                                marginLeft: '56px' // Space for the animated logo
+                                marginLeft: '56px'
                             }}
                         >
                             <img
                                 onClick={handleRefresh}
                                 src="/logotype2.png"
                                 alt="IZTECH Racing Team"
-                                className="w-auto h-10 transition-all duration-500 hover:opacity-90"
-                                style={{ 
+                                className="w-auto h-10 transition-all duration-500 hover:opacity-90 cursor-pointer"
+                                style={{
                                     filter: 'drop-shadow(0 2px 8px rgba(154, 14, 32, 0.4))',
                                     backfaceVisibility: 'hidden'
                                 }}
@@ -52,7 +51,6 @@ const Header = () => {
                             />
                         </div>
 
-                        {/* Animated Logo - Slides over the main logo */}
                         <div
                             className="w-10 h-10 rounded-lg overflow-hidden flex items-center will-change-transform"
                             style={{
@@ -71,24 +69,31 @@ const Header = () => {
                                 className="w-full h-full object-contain transition-all duration-300 hover:scale-110 hover:rotate-1"
                                 draggable={false}
                                 style={{
-                                    transform: 'translateZ(0)', // Force hardware acceleration
+                                    transform: 'translateZ(0)',
                                     backfaceVisibility: 'hidden'
                                 }}
                             />
                         </div>
-
                     </div>
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center space-x-8">
-                        {['home', 'team', 'vehicles', 'magazines', 'gallery', 'sponsors', 'contact'].map((item) => (
-                            <a 
-                                key={item}
-                                href={`#${item}`} 
+                        {[
+                            { path: '/', key: 'home' },
+                            { path: '/team', key: 'team' },
+                            { path: '/vehicles', key: 'vehicles' },
+                            { path: '/magazine', key: 'magazine' },
+                            { path: '/gallery', key: 'gallery' },
+                            { path: '/sponsors', key: 'sponsors' },
+                            { path: '/contact', key: 'contact' }
+                        ].map((item) => (
+                            <Link
+                                key={item.key}
+                                to={item.path}
                                 className="nav-link text-white hover:text-[#9a0e20] font-medium px-1 py-2 transition-colors duration-200"
                             >
-                                {t(`header.${item === 'magazines' ? 'magazine' : item}`)}
-                            </a>
+                                {t(`header.${item.key}`)}
+                            </Link>
                         ))}
                     </nav>
 
@@ -109,7 +114,7 @@ const Header = () => {
 
                     {/* Language toggle button */}
                     <div className="hidden md:flex items-center space-x-1">
-                        <button 
+                        <button
                             onClick={toggleLanguage}
                             className="ml-4 px-3 py-1.5 rounded-md text-sm font-medium text-white bg-[#9a0e20] hover:bg-[#7a0b1a] transition-colors"
                         >
@@ -122,22 +127,22 @@ const Header = () => {
                 {isMenuOpen && (
                     <div className="md:hidden">
                         <div className="px-2 pt-2 pb-3 space-y-1 bg-black/95 backdrop-blur-sm border-t border-[#9a0e20]/20">
-                            <a href="#home" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200">{t('header.home')}</a>
-                            <a href="#team" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200">{t('header.team')}</a>
-                            <a href="#vehicles" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200">{t('header.vehicles')}</a>
-                            <a href="#magazines" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200">{t('header.magazine')}</a>
-                            <a href="#gallery" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200">{t('header.gallery')}</a>
-                            <a href="#sponsors" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200">{t('header.sponsors')}</a>
-                            <a href="#contact" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200">{t('header.contact')}</a>
+                            <Link to="/" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.home')}</Link>
+                            <Link to="/team" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.team')}</Link>
+                            <Link to="/vehicles" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.vehicles')}</Link>
+                            <Link to="/magazine" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.magazine')}</Link>
+                            <Link to="/gallery" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.gallery')}</Link>
+                            <Link to="/sponsors" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.sponsors')}</Link>
+                            <Link to="/contact" className="block px-3 py-2 text-white hover:text-[#9a0e20] transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('header.contact')}</Link>
                         </div>
                     </div>
                 )}
             </div>
-
         </header>
     );
 };
 
 export default Header;
+
 
 
