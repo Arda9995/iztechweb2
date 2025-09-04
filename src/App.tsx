@@ -1,31 +1,49 @@
 import './i18n';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
+
+// Ana sayfada gösterilecek bileşenler
 import Hero from './components/Hero';
 import About from './components/About';
-import Team from './components/Team';
+import Gallery from './components/Gallery';
+import Magazine from './components/Magazine';
 import Vehicles from './components/Vehicles';
-import Competitions from './components/Competitions';
 import Sponsors from './components/Sponsors';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
-import Gallery from "./components/Gallery.tsx";
-import Magazine from "./components/Magazine.tsx";
+
+// Diğer sayfalar
+import Team from './components/Team';
+
+// Ana sayfa layout
+function HomePage() {
+    return (
+        <>
+            <Hero />
+            <About />
+            <Gallery />
+            <Magazine />
+            <Vehicles />
+            <Sponsors />
+            <Contact />
+        </>
+    );
+}
 
 function App() {
-  return (
-    <div className="min-h-screen bg-black">
-      <Header />
-      <Hero />
-      <About />
-      <Team />
-      <Gallery />
-      <Magazine />
-      <Vehicles />
-      <Sponsors />
-      <Contact />
-      <Footer />
-    </div>
-  );
+    return (
+        <Router>
+            <div className="min-h-screen bg-black">
+                <Header />
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/team" element={<Team />} />
+                    {/* ileride ayrı sayfa istersek buraya ekleriz örn: /vehicles, /gallery */}
+                </Routes>
+                <Footer />
+            </div>
+        </Router>
+    );
 }
 
 export default App;
