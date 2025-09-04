@@ -21,11 +21,6 @@ function HomePage() {
         <>
             <Hero />
             <About />
-            <Gallery />
-            <Magazine />
-            <Vehicles />
-            <Sponsors />
-            <Contact />
         </>
     );
 }
@@ -38,6 +33,11 @@ function App() {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/team" element={<Team />} />
+                    <Route path="/vehicles" element={<Vehicles />} />
+                    <Route path="/magazine" element={<Magazine />} />
+                    <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/sponsors" element={<Sponsors />} />
+                    <Route path="/contact" element={<Contact />} />
                     {/* ileride ayrı sayfa istersek buraya ekleriz örn: /vehicles, /gallery */}
                 </Routes>
                 <Footer />
