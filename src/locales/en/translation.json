@@ -195,7 +195,7 @@
   },
   "about": {
     "title": "About",
-    "description": "Founded on October 15, 2024, the IZTECH RACING Formula Student Team continues its work within İzmir Institute of Technology as a multidisciplinary group of students from 3 faculties and 7 departments. As of November 2025, our team consists of 7 sub-teams and 67 members.",
+    "description": "Founded on October 15, 2024, the IZTECH RACING Formula Student Team continues its work within İzmir Institute of Technology as a multidisciplinary group of students from 3 faculties and 7 departments. As of November 2025, our team consists of 7 sub-teams and 54 members.",
     "journey": {
       "title": "Our Journey",
       "paragraph1": "Formula SAE (Society of Automotive Engineers) is a competition held among universities for over 40 years. This competition is an engineering competition where students from many countries around the world participate by designing and producing Formula-type single-seater small racing vehicles. Formula SAE pushes students to apply what they learn in the classroom to a real-world project. There are four competition categories: internal combustion, hybrid, electric, and driverless.",
@@ -437,7 +437,7 @@
         "label": "Soonest Race"
       },
       "members": {
-        "value": "67",
+        "value": "54",
         "label": "Team Members"
       },
       "horsepower": {
@@ -445,7 +445,7 @@
         "label": " "
       },
       "yearsActive": {
-        "value": "1",
+        "value": "1.5",
         "label": "Years Active"
       },
       "scrollDown": "Scroll down"

@@ -959,7 +959,7 @@ const Team2025 = () => {
       roleKey: "vehicle_dynamics_team_member",
       role: t('roles.vehicle_dynamics_team_member'),
       department: t('departments.materials_engineering'),
-      image: "/KUZEY.webp",
+      image: "/o.webp",
       social: {
         linkedin: "#",
         email: "",
@@ -967,7 +967,7 @@ const Team2025 = () => {
       },
       profile: {
         bio: "",
-        works: ["/KUZEY.webp"],
+        works: ["/o.webp"],
         documents: []
       }
     },
@@ -976,7 +976,7 @@ const Team2025 = () => {
       roleKey: "business_development_team_member",
       role: t('roles.business_development_team_member'),
       department: t('departments.industrial_design'),
-      image: "/KUZEY.webp",
+      image: "/o.webp",
       social: {
         linkedin: "#",
         email: "",
@@ -984,7 +984,7 @@ const Team2025 = () => {
       },
       profile: {
         bio: "",
-        works: ["/KUZEY.webp"],
+        works: ["/o.webp"],
         documents: []
       }
     },
